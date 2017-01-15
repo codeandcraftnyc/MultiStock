@@ -29,8 +29,8 @@
 class FireGento_MultiStock_Model_Observer
 {
     /**
-     * We need to put the main stock id into the indexing process. If we don't we get duplicate entries
-     * errors.
+     * We need to put the main stock id into the indexing process. If we don't
+     * we get duplicate entries errors.
      *
      * @param  Varien_Event_Observer $observer the observer
      *
@@ -39,6 +39,7 @@ class FireGento_MultiStock_Model_Observer
     public function prepareCatalogProductIndexSelect(Varien_Event_Observer $observer)
     {
         $select = $observer->getEvent()->getSelect();
+        var_dump($select); die;
         //the prefix is hardcode because the root haven't a constant for that.
         $select->where('ciss.stock_id = ?', Mage_CatalogInventory_Model_Stock::DEFAULT_STOCK_ID);
 
